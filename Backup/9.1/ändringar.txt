@@ -1,0 +1,7 @@
+ändringar:
+	Effektiviserat game koden ännu mer.
+	Effektiviserade paddle koden och flyttade alla olika värden till en "paddleMesh" lista
+Ska göras:
+	Lägga till options menu.
+	Sedan kolla igenom ALL kod och skriva den mer effektiv och buggsäker.
+	Lägga till highscore i ett krypterat dokument.

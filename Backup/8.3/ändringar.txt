@@ -1,0 +1,6 @@
+ändringar:
+	Skapade en kollisions funktion som kan se vilket boll en rektangel träffar ifrån 9 håll med center.
+	Skapade och testade en ny simpel kollisions fuktion för knappar och enkel kollision
+Ska göras:
+	implementera den MER avancerade kollisions funktionen till paddle och boll för att göra mer realistiska studsar
+	ska lägga till spin på bollen 

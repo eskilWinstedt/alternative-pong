@@ -1,0 +1,8 @@
+ändringar:
+	Använde den mer avancerade kollisions funktionen för paddle och boll. Använder ej hörn kollision reaktion pga konstigheter. Kanske kommer i framtiden.
+	Uppdaterade defend koden för att minska på buggar.
+	Lade till bollspin.
+Ska göras:
+	Lägga till options menu.
+	Sedan kolla igenom ALL kod och skriva den mer effektiv och buggsäker.
+	Lägga till highscore i ett krypterat dokument.

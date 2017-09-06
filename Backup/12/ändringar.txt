@@ -1,0 +1,10 @@
+ändringar:
+	Fixat fullscreen toggle knapp
+
+Ska göras:
+	Fixa V-sync- och fullscreenknapp till optionsmenyn.
+	skriva rent koden.
+	Tillåta knappar att ha olika storlekar efter display update. dim elementet kan lagras i varderas knapps klass
+	Justeringar av selector storleken ska bestämmas utifrån bredd och höjd
+Kanske ska göras:
+	Sammla variabler från mainfunktionen i klasser som heter samma sak som dess tillhörande loop.

@@ -1,0 +1,12 @@
+ändringar:
+	Flyttat selector koden till en klass från en funktion.
+
+Ska göras:
+	Koppla selectorn till upplösningen i options menyn.
+	Fixa back- och applyknapp till options menyn.
+	Fixa checkbox.
+	Fixa V-sync- och fullscreencheckbox till optionsmenyn.
+
+Kanske ska göras:
+	Fixa en algorithm som kan rita stjärnor för att sedan användas till en bakgrund.
+	Sammla variabler från mainfunktionen i klasser som heter samma sak som dess tillhörande loop.

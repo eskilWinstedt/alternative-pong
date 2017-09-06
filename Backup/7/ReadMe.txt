@@ -1,0 +1,1 @@
+Added a working HUD. Added center on y/x or both in textToScreen function. Dimensions is now resulution scaling completly and correctly.

@@ -1,0 +1,8 @@
+ändringar:
+	Förbättrad och fungerande sure popup som klarar olika återgärder.
+	Fungerande score-system.
+Ska göras:
+	Fixa hardcoden till bläddermenyn. 
+	Fixa centrering till bläddermenyn.
+	Lägga till options menu.
+	Sedan kolla igenom ALL kod och skriva den mer effektiv och buggsäker.

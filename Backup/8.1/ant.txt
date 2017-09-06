@@ -1,0 +1,7 @@
+Ljud funkar ej :(
+Lade till en popup när man skulle exita från startmenyn
+musen döljs nu när man spelar
+
+Flytta game over till en egen loop. 
+Se till att musen är osynlig om  gameloop är på men inte annars. 
+Gör popup bättre och gör en funktion istället för copy past kod.

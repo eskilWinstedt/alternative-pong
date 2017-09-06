@@ -1,0 +1,3 @@
+Göra ökande hastighet. Highscore lista. Spara resultatet. 
+
+Fortsätt på animerad knapp. Gör rage quit knapp.

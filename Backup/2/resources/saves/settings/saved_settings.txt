@@ -1,0 +1,1 @@
+{'width': 1920, 'VSyncStatus': True, 'fullscreen': True, 'VSync': 60, 'height': 1080}

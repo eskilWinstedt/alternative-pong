@@ -1,0 +1,3 @@
+Fixade en bug som gjorde att man kunde bugga bollar och få högre score.
+Skapat på en ny kollisions funktion som är lättare att använda och kortare. Ska lägga till en där man kan se var ifrån kollisionen kom så att bollar kan studdsas uppåt och neråt.
+Ändrat var resources ligger någonstans
