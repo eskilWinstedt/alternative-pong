@@ -1,5 +1,5 @@
-#Alternative Pong
-##A singleplayer pong with only one game mode 
+# Alternative Pong
+## A singleplayer pong with only one game mode 
 
 (I have not tried the game in a while. Don't know how well it works)
 
