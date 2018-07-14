@@ -296,7 +296,7 @@ class CreateSelector(object): #A text with two buttons on either side. < text > 
 		self.nextButton = Button(self.buttonsColors, [self.buttonWidth, self.buttonWidth], ('>', self.fontSize, self.font))     #     -- || --
 	def update(self):
 		'''Should run every loop when the selector is showen'''
-		#FORTSÄTT HÄR---OBS DETTA ÄR SELECTOR2 FUNKTIONEN
+		#FORTSÄTT HÄR
 		if self.selectedValue < self.availableNumberValues - 1:
 			nextButtonActive = True
 		elif self.selectedValue == self.availableNumberValues - 1:
