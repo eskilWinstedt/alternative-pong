@@ -512,12 +512,10 @@ def mainLoop():
 	global dim	#Size and positions
 	dim = updateDesign()
 	avilableResolutions = reverseList(pygame.display.list_modes())
-	resolutionChangerData = None
-	selectedResolution = avilableResolutions.index((displayWidth, displayHeight)) #TEMP _______________:-----------
 	overlay, overlayRect = createOverlay(235) #Used to draw attention from the objects behind the popup.
 	buttonsActive = True
 	preClock = time.clock() #Used to change the movment depending on the FPS
-	activeLoops = {'gameIntro': True, 'pause': False, 'game': False, 'FPSMeter': False, 'modesScreen': False, 'pause': False, 'surePopup': False, 'gameOver': False, 'scoreboard': False, 'settings': False}
+	activeLoops = {'gameIntro': True, 'pause': False, 'game': False, 'FPSMeter': False, 'modesScreen': False, 'surePopup': False, 'gameOver': False, 'scoreboard': False, 'settings': False}
 	previousLoop = '' #The previous loops determines what loop loops like "surePopup" should revert to.
 	surePopupType = 'EXIT' #What should the text be fitted for?
 	surePopupAction = 'NONE'  #Not 
@@ -539,11 +537,8 @@ def mainLoop():
 	yesButton = Button(buttonColorScheme, buttonDim, ('YES', buttonFontSize, standardFont))
 	noButton = Button(buttonColorScheme, buttonDim, ('NO', buttonFontSize, standardFont))
 	applyButton = Button(buttonColorScheme, buttonDim, ('APPLY', buttonFontSize, standardFont))
-	settingsAutoButton = Button(buttonColorScheme, buttonDim, ('AUTO', buttonFontSize, standardFont))
 	settingsBackButton = Button(buttonColorScheme, buttonDim, ('BACK', buttonFontSize, standardFont))
-	giveUpButton = Button(buttonColorScheme, buttonDim, ('GIVE UP', buttonFontSize, standardFont))
 	defendButton = Button(buttonColorScheme, buttonDim, ('DEFEND', buttonFontSize, standardFont))
-	#checkBox = Button(buttonColorScheme, [buttonDim[1], buttonDim[1]], ('X', buttonFontSize, standardFont))
 	fullscreenToggleButton = Button(buttonColorScheme, buttonDim, ('N', buttonFontSize, standardFont))
 	ResolutionChanger = CreateSelector(resolutionsToValues(avilableResolutions), ['resolution_selector_width', 'resolution_selector_height', 'resolution_selector_teckst_height'], standardFont, selectorButtonColorScheme, (False, False))
 	ResolutionChanger.updatePosition(['resolution_selector_pos_x', 'resolution_selector_pos_y'])
