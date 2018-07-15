@@ -99,8 +99,6 @@ design = { #Using i and ek instead of y and x because of a known bug
 	'fullscreen_teckst_pos_y': 3413,
 	'fullscreen_button_pos_x': 6849,
 	'fullscreen_button_pos_y': 3300,
-	'vsync_teckst_pos_x': 2500,  #FORTSÄTT HÄR
-	'vsync_teckst_pos_y': 4214,
 	'line_1_pos_y': 3115,
 	'line_1_pos_x': 2500,
 	'line_2_pos_y': 3915, #Fäjl
@@ -743,7 +741,6 @@ def mainLoop():
 		if activeLoops['settings']:
 			textToScreen("RESOLUTION:", colors.white, dim['button_font_size_y'], dim['resolution_selector_name_pos_x'], dim['resolution_selector_name_pos_y'], (False, False), standardFont)
 			textToScreen("FULLSCREEN:", colors.white, dim['button_font_size_y'], dim['fullscreen_teckst_pos_x'], dim['fullscreen_teckst_pos_y'], (False, False), standardFont)
-			textToScreen("V-SYNC:", colors.white, dim['button_font_size_y'], dim['vsync_teckst_pos_x'], dim['vsync_teckst_pos_y'], (False, False), standardFont)
 			
 			if fullscreenToggleButton.updateButton([dim['fullscreen_button_pos_x'], dim['fullscreen_button_pos_y']], False):
 				if fullscreenToggleButton.text0 == 'ON':
