@@ -21,8 +21,6 @@ design = { #Using i and ek instead of y and x because of a known bug
 	'optionsButton_pos_y': 5651,
 	'exitButton_pos_x': 5000,
 	'exitButton_pos_y': 6302,
-	'defendButton_pos_x': 5000,
-	'defendButton_pos_y': 5000,
 	'continueButton_pos_x': 5000,
 	'continueButton_pos_y': 5000,
 	'restartButton_pos_x': 5000,
@@ -35,12 +33,9 @@ design = { #Using i and ek instead of y and x because of a known bug
 	'noButton_pos_y': 5000,
 	'menuButton_pos_x': 5000,
 	'menuButton_pos_y': 5651,
-	'backButton_pos_x': 5000,
-	'backButton_pos_y': 5651,
 	'title_text_height': 1700,
 	'title_pos_x': 5000,
 	'title_pos_y': 2500,
-	'gamemodes_text_height': 680,
 	'paused_text_height': 850,
 	'paused_pos_x': 5000,
 	'paused_pos_y': 2500,
@@ -515,7 +510,7 @@ def mainLoop():
 	overlay, overlayRect = createOverlay(235) #Used to draw attention from the objects behind the popup.
 	buttonsActive = True
 	preClock = time.clock() #Used to change the movment depending on the FPS
-	activeLoops = {'gameIntro': True, 'pause': False, 'game': False, 'FPSMeter': False, 'modesScreen': False, 'surePopup': False, 'gameOver': False, 'scoreboard': False, 'settings': False}
+	activeLoops = {'gameIntro': True, 'pause': False, 'game': False, 'FPSMeter': False, 'surePopup': False, 'gameOver': False, 'scoreboard': False, 'settings': False}
 	previousLoop = '' #The previous loops determines what loop loops like "surePopup" should revert to.
 	surePopupType = 'EXIT' #What should the text be fitted for?
 	surePopupAction = 'NONE'  #Not 
@@ -530,7 +525,6 @@ def mainLoop():
 	optionsButton = Button(buttonColorScheme, buttonDim, ('OPTIONS', buttonFontSize, standardFont))
 	exitButton = Button(buttonColorScheme, buttonDim, ('EXIT', buttonFontSize, standardFont))
 	continueButton = Button(buttonColorScheme, buttonDim, ('CONTINUE', buttonFontSize, standardFont))
-	backButton = Button(buttonColorScheme, buttonDim, ('BACK', buttonFontSize, standardFont))
 	menuButton = Button(buttonColorScheme, buttonDim, ('MENU', buttonFontSize, standardFont))
 	quitButton = Button(buttonColorScheme, buttonDim, ('QUIT', buttonFontSize, standardFont))
 	restartButton = Button(buttonColorScheme, buttonDim, ('RESTART', buttonFontSize, standardFont))
@@ -538,12 +532,12 @@ def mainLoop():
 	noButton = Button(buttonColorScheme, buttonDim, ('NO', buttonFontSize, standardFont))
 	applyButton = Button(buttonColorScheme, buttonDim, ('APPLY', buttonFontSize, standardFont))
 	settingsBackButton = Button(buttonColorScheme, buttonDim, ('BACK', buttonFontSize, standardFont))
-	defendButton = Button(buttonColorScheme, buttonDim, ('DEFEND', buttonFontSize, standardFont))
 	fullscreenToggleButton = Button(buttonColorScheme, buttonDim, ('N', buttonFontSize, standardFont))
 	ResolutionChanger = CreateSelector(resolutionsToValues(avilableResolutions), ['resolution_selector_width', 'resolution_selector_height', 'resolution_selector_teckst_height'], standardFont, selectorButtonColorScheme, (False, False))
 	ResolutionChanger.updatePosition(['resolution_selector_pos_x', 'resolution_selector_pos_y'])
 	ResolutionChanger.selectedValue = len(ResolutionChanger.values) - 1 #Highest value (resolution)
 	global frameTime
+	global GD
 	#Start of the loops:
 	while True:
 		frameTime = time.clock()
@@ -557,10 +551,11 @@ def mainLoop():
 				quit()
 		if activeLoops['gameIntro']: #Game intro loop
 			previousLoop = 'gameIntro'
-			textToScreen("PONG", colors.white, dim['title_text_height'], dim['title_pos_x'], dim['title_pos_y'], (True, True), standardFont)
+			textToScreen("PONG DEFEND", colors.white, dim['title_text_height'], dim['title_pos_x'], dim['title_pos_y'], (True, True), standardFont)
 			if startButton.updateButton([dim['startButton_pos_x'], dim['startButton_pos_y']], True, buttonsActive):
 				activeLoops['gameIntro'] = False
-				activeLoops['modesScreen'] = True
+				activeLoops['game'] = True				
+				GD = createGameData()
 				noRender = True
 			if optionsButton.updateButton([dim['optionsButton_pos_x'], dim['optionsButton_pos_y']], True, buttonsActive):
 				activeLoops['gameIntro'] = False
@@ -575,18 +570,6 @@ def mainLoop():
 				buttonsActive = False
 				surePopupAction = 'EXIT' #What action should start if yes is pressed?
 				surePopupType = 'EXIT' #What message should be displayed?
-		if activeLoops['modesScreen'] and noRender == False:
-			textToScreen("GAME MODES", colors.white, dim['gamemodes_text_height'], dim['title_pos_x'], dim['title_pos_y'], (True, True), standardFont)
-			if defendButton.updateButton([dim['defendButton_pos_x'], dim['defendButton_pos_y']], True):
-				global GD
-				GD = createGameData()
-				activeLoops['modesScreen'] = False
-				activeLoops['game'] = True
-				noRender = True
-			if backButton.updateButton([dim['backButton_pos_x'], dim['backButton_pos_y']], True):
-				activeLoops['modesScreen'] = False
-				activeLoops['gameIntro'] = True
-				noRender = True
 		if activeLoops['game'] and noRender == False: #Game loop
 			if GD['pausedAt']:
 				GD['pausedSince'] = frameTime - GD['pausedAt']
@@ -760,7 +743,7 @@ def mainLoop():
 				settings.updateDisplayDimensions()
 				settings.save()
 				dim = updateDesign()
-				buttonFontSize = dim['button_font_size_y'] #Don't know what this does, doesen't remember
+				buttonFontSize = dim['button_font_size_y'] #Don't know what this does, don't remember
 				updateAllButtonDims()
 				updateAllSelectorDims()
 			pygame.draw.rect(gameDisplay, colors.der_Grey, (dim['line_1_pos_x'], dim['line_1_pos_y'], dim['half_x'], 2))  #Line 1
