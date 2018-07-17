@@ -10,7 +10,6 @@ clock = pygame.time.Clock()
 standardFont = 'resources/Walkway_SemiBold.ttf'
 allButtons = []
 allSelectors = []
-allSelectors2 = []
 design = { #Using i and ek instead of y and x because of a known bug
 	'button_width': 651,
 	'button_height': 430,
@@ -249,7 +248,7 @@ class CreateSelector(object): #A text with two buttons on either side. < text > 
 		self.buttonsColors = buttonsColors			#The different colors used by the selectors buttons.
 		self.centred = centred						#Center may center the selector on the pos.
 
-		allSelectors2.append(self) 
+		allSelectors.append(self) 
 		self.selectedValue = 0 						#The selected value in the selector.
 		self.lastSelectedValue = self.selectedValue	
 		self.availableNumberValues = len(values)	#Used to determine the las value so you can't scroll to far.
@@ -315,7 +314,7 @@ def updateAllButtonDims():
 		button.height = dim['button_height']
 		button.updateButtonFontSize(dim['button_font_size_y'])
 def updateAllSelectorDims():
-	for selector in allSelectors2:
+	for selector in allSelectors:
 		selector.fix()
 def numberInvert(value):
 	'''Inverts numbers to the sam value but negative/positive'''
