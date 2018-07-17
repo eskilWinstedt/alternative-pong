@@ -383,10 +383,6 @@ def ballMesh(cord, radius):
 	y = cord[1] - radius
 	diam = radius * 2
 	return [x, y, diam, diam]
-def cornerCollision(cords):
-	#A bounce to a 45 degrees thing
-	#NOT IN USE
-	return [cords[1], cords[0]]
 def updateTimeMultipiler(preClock):
 	return frameTime - preClock, frameTime
 def textObject(text, color, size = 25, font = standardFont):
